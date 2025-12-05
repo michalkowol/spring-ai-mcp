@@ -23,4 +23,3 @@ class HttpClientFactory(private val restClientBuilder: RestClient.Builder) {
         return httpServiceProxyFactory.createClient(serviceType.java)
     }
 }
-
