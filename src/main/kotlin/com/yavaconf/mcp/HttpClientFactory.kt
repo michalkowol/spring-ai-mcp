@@ -7,7 +7,7 @@ import org.springframework.web.service.invoker.HttpServiceProxyFactory
 import kotlin.reflect.KClass
 
 @Component
-class WebClientFactory(private val restClientBuilder: RestClient.Builder) {
+class HttpClientFactory(private val restClientBuilder: RestClient.Builder) {
 
     final inline fun <reified T : Any> create(baseUrl: String): T {
         return create(baseUrl, T::class)
@@ -23,3 +23,4 @@ class WebClientFactory(private val restClientBuilder: RestClient.Builder) {
         return httpServiceProxyFactory.createClient(serviceType.java)
     }
 }
+

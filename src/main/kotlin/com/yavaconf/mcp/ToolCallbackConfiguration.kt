@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean
 
 
 @Configuration(proxyBeanMethods = false)
-class ToolchainConfiguration {
+class ToolCallbackConfiguration {
 
     @Bean
     fun toolCallbackProvider(lightbulbMcpAdapter: LightbulbMcpAdapter): ToolCallbackProvider {

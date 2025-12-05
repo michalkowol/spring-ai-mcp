@@ -4,10 +4,11 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 @Configuration(proxyBeanMethods = false)
-class WebClientConfiguration(private val webClientFactory: WebClientFactory) {
+class HttpClientConfiguration(private val httpClientFactory: HttpClientFactory) {
 
     @Bean
     fun lightbulbClient(): LightbulbClient {
-        return webClientFactory.create(baseUrl = "http://172.18.0.67:8081")
+        return httpClientFactory.create(baseUrl = "http://172.18.0.67:8081")
     }
 }
+
