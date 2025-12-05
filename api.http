@@ -1,0 +1,83 @@
+###
+POST http://172.18.0.67:8081/zeroconf/switch
+Content-Type: application/json
+
+{
+  "deviceId": "10008fe75b",
+  "data": {
+    "switch": "on"
+  }
+}
+
+###
+
+POST http://localhost:8080/mcp
+Content-Type: application/json
+Accept: text/event-stream, application/json
+
+{
+  "jsonrpc": "2.0",
+  "id": "{{$random.uuid}}",
+  "method": "initialize",
+  "params": {
+    "protocolVersion": "2025-03-26",
+    "capabilities": {}
+  }
+}
+
+###
+
+POST http://localhost:8080/mcp
+Content-Type: application/json
+Accept: text/event-stream, application/json
+Mcp-Session-Id: d9a96178-80db-4dac-a4d0-fd28ab598c7e
+
+{
+  "jsonrpc": "2.0",
+  "method": "notifications/initialized"
+}
+
+###
+
+POST http://localhost:8080/mcp
+Content-Type: application/json
+Accept: text/event-stream, application/json
+Mcp-Session-Id: d9a96178-80db-4dac-a4d0-fd28ab598c7e
+
+{
+  "jsonrpc": "2.0",
+  "id": "{{$random.uuid}}",
+  "method": "ping"
+}
+
+###
+
+POST http://localhost:8080/mcp
+Content-Type: application/json
+Accept: text/event-stream, application/json
+Mcp-Session-Id: d9a96178-80db-4dac-a4d0-fd28ab598c7e
+
+{
+  "jsonrpc": "2.0",
+  "id": "{{$random.uuid}}",
+  "method": "tools/list"
+}
+
+###
+
+POST http://localhost:8080/mcp
+Content-Type: application/json
+Accept: text/event-stream, application/json
+Mcp-Session-Id: d9a96178-80db-4dac-a4d0-fd28ab598c7e
+
+{
+  "jsonrpc": "2.0",
+  "id": "{{$random.uuid}}",
+  "method": "tools/call",
+  "params": {
+    "name": "pulseNTimes",
+    "arguments": {
+    "times": 3
+    }
+  }
+}
