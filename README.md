@@ -30,15 +30,13 @@ Configure the lightbulb base URL in `application.properties`:
 app.lightbulb.base-url=http://ewelink_10008fe75b.local:8081
 ```
 
-### Resolving mDNS to IP Address
+> **Note:** Some MCP clients may have trouble resolving mDNS hostnames. If you experience connection issues, use the IP address instead of the `.local` hostname.
 
 To get the IP address from the mDNS hostname:
 
 ```sh
 ping -c 1 -a ewelink_10008fe75b.local
 ```
-
-You can then use either the mDNS hostname or the resolved IP address in your configuration.
 
 ### MCP Server Settings
 
