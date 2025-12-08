@@ -24,13 +24,21 @@ This project creates an MCP server that exposes tools for controlling a smart li
 
 ### Lightbulb Connection
 
-Update the lightbulb IP address in `WebClientConfiguration.kt`:
+Configure the lightbulb base URL in `application.properties`:
 
-```kotlin
-fun lightbulbClient(): LightbulbClient {
-    return webClientFactory.create(baseUrl = "http://YOUR_LIGHTBULB_IP:8081")
-}
+```properties
+app.lightbulb.base-url=http://ewelink_10008fe75b.local:8081
 ```
+
+### Resolving mDNS to IP Address
+
+To get the IP address from the mDNS hostname:
+
+```sh
+ping -c 1 -a ewelink_10008fe75b.local
+```
+
+You can then use either the mDNS hostname or the resolved IP address in your configuration.
 
 ### MCP Server Settings
 
@@ -67,7 +75,45 @@ Add the following to your MCP settings:
 
 Once configured, you can ask the AI assistant to "pulse the lightbulb" or "pulse the lightbulb 3 times".
 
+## Sonoff DIY Mode Setup
+
+### Initial Setup
+
+1. Restart Sonoff device - it should blink every 1s
+2. Connect to `ITEAD-xxxxx` WiFi network using password `12345678`
+3. Open http://10.10.7.1/ to configure the device
+
+### API Examples
+
+#### Switch
+
+```http
+POST http://ewelink_10008fe75b.local:8081/zeroconf/switch
+Content-Type: application/json
+
+{
+  "deviceId": "10008fe75b",
+  "data": {
+    "switch": "on"
+  }
+}
+```
+
+#### Pulse (multiples of 500ms)
+
+```http
+POST http://ewelink_10008fe75b.local:8081/zeroconf/pulse
+Content-Type: application/json
+
+{ 
+    "deviceid": "10008fe75b", 
+    "data": {
+        "pulse": "on", 
+        "pulseWidth": 500
+    } 
+}
+```
+
 ## License
 
 See [LICENSE](LICENSE) file.
-

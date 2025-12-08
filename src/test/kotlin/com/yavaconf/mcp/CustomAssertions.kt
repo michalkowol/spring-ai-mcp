@@ -26,3 +26,4 @@ fun Assert<FakeLightbulbClient>.hasRecordedCalls(count: Int) = given { actual ->
     if (actual.switchCalls.size == count) return
     expected("to have ${show(count)} recorded calls but had ${show(actual.switchCalls.size)}")
 }
+
