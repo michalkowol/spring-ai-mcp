@@ -1,4 +1,8 @@
 ###
+
+POST http://localhost:8080/pulse
+
+###
 POST http://172.18.0.67:8081/zeroconf/switch
 Content-Type: application/json
 
