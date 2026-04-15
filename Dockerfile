@@ -33,7 +33,7 @@ HEALTHCHECK --interval=10s --timeout=3s --start-period=5s --retries=3 CMD wget -
 ENV JDK_JAVA_OPTIONS="-XX:MaxRAMPercentage=75.0"
 ENV SERVER_PORT=8080
 
-ENV OTEL_SERVICE_NAME=jira-tempo
+ENV OTEL_SERVICE_NAME=spring-ai-mcp
 ENV OTEL_EXPORTER_OTLP_ENDPOINT=http://lgtm:4318
 
 ENTRYPOINT ["java", "-javaagent:opentelemetry-javaagent.jar", "-jar", "app.jar"]
