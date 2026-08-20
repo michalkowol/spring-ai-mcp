@@ -10,8 +10,8 @@ This project creates an MCP server that exposes tools for controlling a smart li
 
 - **MCP Server** - Exposes lightbulb control as AI-callable tools
 - **Smart Lightbulb Integration** - Controls lightbulbs via HTTP API (compatible with Sonoff DIY mode and similar devices)
-- **Spring Boot 3.5** - Built on modern Spring Boot with Kotlin
-- **Spring AI 1.1** - Leverages Spring AI's MCP server support
+- **Spring Boot 4.1** - Built on modern Spring Boot with Kotlin
+- **Spring AI 2.0** - Leverages Spring AI's MCP server support
 
 ## Available MCP Tools
 
